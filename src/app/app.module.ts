@@ -15,7 +15,13 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 export const firebaseConfig = {
-
+  apiKey: "AIzaSyCUfWGGSyxn8TisXD9bo8YPwqYet0nDb7s",
+  authDomain: "l3miage-8e93e.firebaseapp.com",
+  databaseURL: "https://l3miage-8e93e-default-rtdb.firebaseio.com",
+  projectId: "l3miage-8e93e",
+  storageBucket: "l3miage-8e93e.appspot.com",
+  messagingSenderId: "684641835459",
+  appId: "1:684641835459:web:e9854ba6ee669a8f460576"
 };
 
 @NgModule({

@@ -7,6 +7,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p>Ceci est une page de d'inscription pour les nouveaux utilisateurs</p>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    Si vous etes nouveau, Creer un compte d'utilisateur ici.
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label><b>Nom</b></ion-label>
+      <ion-input [(ngModel)]="nom" placeholder="Entrez votre nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Prénoms</b></ion-label>
+      <ion-input [(ngModel)]="prenom" placeholder="Entrez votre prénom"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label><b>Email</b></ion-label>
+      <ion-input [(ngModel)]="email" placeholder="Entrez votre email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label><b>Mot de passe</b></ion-label>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Entrez votre mot de passe"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label><b>Statut</b></ion-label>
+      <ion-select [(ngModel)]="statut" value="...    " okText="OK" cancelText="Annuler" >
+        <ion-select-option value="Passager">Passager</ion-select-option>
+        <ion-select-option value="Conducteur">Conducteur</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-button (click)="signup()" expand="block" color="tertiary">Inscription</ion-button>
+    </div>
+    
+  </ion-list>
 </ion-content>
+
