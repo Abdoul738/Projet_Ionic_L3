@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>accueil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+
+  <div id="container">
+    <div class="img1">
+      <div class="text1"><strong>Où souhaitez vous aller ?</strong></div>
+      <div class="form1">
+        <ion-list>
+          <ion-item>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <ion-label><b>Depart:</b></ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <ion-label><b>Destination:</b></ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="calendar-number-outline"></ion-icon>
+            <ion-label><b>Date:</b></ion-label>
+            <ion-input type="date"></ion-input>
+            <ion-icon name="people-outline"></ion-icon>
+            <ion-input type="number" placeholder="0"></ion-input>
+          </ion-item>
+      
+          <div class="ion-padding">
+            <ion-button expand="block" fill="outline" color="primary"><b>Recherche</b></ion-button>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    
+  </div>
+
+</ion-content>

@@ -1,0 +1,25 @@
+.text1{
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #eff8e9;
+    background: rgba(1, 58, 66, 0.863);
+    margin-top: 90px;
+  }
+
+  ion-content.background{
+    --background: url(../../assets/img/bgaccuel.png) 0 0/100% 100% no-repeat;
+  }
+  .form1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    width: 80%;
+    margin-left: 35px;
+    margin-top: 30px;
+    border-radius: 5%;
+    overflow: hidden;
+  }
+  ion-item ion-label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+  }
+  ion-item ion-label ion-input{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+  }
