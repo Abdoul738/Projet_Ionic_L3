@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Proposer trajet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h3>Renseignez vos informations :</h3>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label><b>Nom</b></ion-label>
+      <ion-input [(ngModel)]="nom" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Prénoms</b></ion-label>
+      <ion-input [(ngModel)]="prenom" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Civilité</b></ion-label>
+      <ion-select [(ngModel)]="civilite" value="...    "  >
+        <ion-select-option value="mme">Mme</ion-select-option>
+        <ion-select-option value="mr">Mr</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Age</b></ion-label>
+      <ion-input [(ngModel)]="age" ></ion-input>
+    </ion-item>
+    
+    
+    <ion-item>
+      <ion-label><b>Email</b></ion-label>
+      <ion-input [(ngModel)]="email" ></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label><b>Mot de passe</b></ion-label>
+      <ion-input [(ngModel)]="password" type="password" ></ion-input>
+    </ion-item>
+    
+
+    <div id="container">
+      <ion-button shape="round" color="secondary" class="btn1" (click)="continuer()" ><strong>Continuer >></strong></ion-button>
+    </div>
+    
+  </ion-list>
+</ion-content>
+

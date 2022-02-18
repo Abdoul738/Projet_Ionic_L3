@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'trajet',
+    loadChildren: () => import('./trajet/trajet.module').then( m => m.TrajetPageModule)
+  },
+  {
+    path: 'info-conducteur',
+    loadChildren: () => import('./info-conducteur/info-conducteur.module').then( m => m.InfoConducteurPageModule)
+  },
 
 ];
 

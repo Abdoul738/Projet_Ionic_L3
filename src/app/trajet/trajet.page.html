@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="info-conducteur" text="retour"></ion-back-button>
+      <ion-title>Proposer trajet</ion-title>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div>
+    <h3>Création d’un trajet :</h3>
+  </div>
+
+  
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label><b>Ville de départ</b></ion-label>
+      <ion-input type="text" [(ngModel)]="dataUser.villeD" ></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label><b>Adresse de départ</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.adresseD" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Ville de destination</b></ion-label>
+      <ion-input type="text" [(ngModel)]="dataUser.villeA" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Adresse d’arrivée</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.adresseA" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Date</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.Date" type="Date" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Information sur la voiture</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.voiture" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Nombre de place</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.nbPlace" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Prix</b></ion-label>
+      <ion-input [(ngModel)]="dataUser.prix" type="text" placeholder="Prix"></ion-input>
+    </ion-item>
+    
+    <div class="ion-padding">
+      <ion-button expand="block" color="primary">Créer ce trajet</ion-button>
+    </div>
+
+  </ion-list>
+
+
+</ion-content>

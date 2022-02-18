@@ -46,6 +46,12 @@ export class AppComponent {
         url   : "/register",
         icon  : "person-add-outline"
       },
+      {
+        title : "Proposer trajet",
+        url   : "/info-conducteur",
+        icon  : "../../assets/ico/chemin.jpg"
+      },
+    
     ]
   }
 }
