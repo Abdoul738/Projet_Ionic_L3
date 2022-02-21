@@ -22,11 +22,15 @@ const routes: Routes = [
   {
     path: 'listuser',
     loadChildren: () => import('./listuser/listuser.module').then( m => m.ListuserPageModule)
-  },  {
+  },
+  {
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
-
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 ];
 
 @NgModule({
