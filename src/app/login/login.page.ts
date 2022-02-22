@@ -84,19 +84,20 @@ signIn(value) {
     .then((response) => {
       console.log(response)
       this.errorMsg = "";
-// Verification du statut de l'utilisateur
       this.firestore.collection('utilisateur').snapshotChanges(['added'])
       .subscribe(actions => {
         actions.forEach(action => {
-          if((action.payload.doc.data()['email'] = value.email) && (action.payload.doc.data()['statut'] = 'Conducteur')){
+          if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Conducteur')){
+            this.router.navigateByUrl('create-trajet');
+          }
+          else if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Passager')){
             this.router.navigateByUrl('dashboard');
           };
-          if((action.payload.doc.data()['email'] = value.email) && (action.payload.doc.data()['statut'] = 'Passager')){
-            this.router.navigateByUrl('listuser');
-          };
+          // console.log('Nom: ' + action.payload.doc.data()['nom']);  
+          // console.log('Email: ' + action.payload.doc.data()['email']);  
+          // console.log('Statut: ' + action.payload.doc.data()['statut']);  
         });
     });
-
     }, error => {
       this.errorMsg = error.message;
       this.successMsg = "";
