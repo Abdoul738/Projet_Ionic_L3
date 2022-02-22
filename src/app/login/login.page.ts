@@ -67,12 +67,36 @@ ngOnInit() {
   });
 }
 
+// signIn(value) {
+//   this.ionicAuthService.signinUser(value)
+//     .then((response) => {
+//       console.log(response)
+//       this.errorMsg = "";
+//       this.router.navigateByUrl('dashboard');
+//     }, error => {
+//       this.errorMsg = error.message;
+//       this.successMsg = "";
+//     })
+// }
+
 signIn(value) {
   this.ionicAuthService.signinUser(value)
     .then((response) => {
       console.log(response)
       this.errorMsg = "";
-      this.router.navigateByUrl('dashboard');
+// Verification du statut de l'utilisateur
+      this.firestore.collection('utilisateur').snapshotChanges(['added'])
+      .subscribe(actions => {
+        actions.forEach(action => {
+          if((action.payload.doc.data()['email'] = value.email) && (action.payload.doc.data()['statut'] = 'Conducteur')){
+            this.router.navigateByUrl('dashboard');
+          };
+          if((action.payload.doc.data()['email'] = value.email) && (action.payload.doc.data()['statut'] = 'Passager')){
+            this.router.navigateByUrl('listuser');
+          };
+        });
+    });
+
     }, error => {
       this.errorMsg = error.message;
       this.successMsg = "";
