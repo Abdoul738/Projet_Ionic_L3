@@ -42,10 +42,7 @@ export class DashboardPage implements OnInit {
   ) { }
 
   ngOnInit() {
-  //   this.firestore.collection('utilisateur').valueChanges().subscribe(response => {
-  //     this.nom = response.email;
-  //     this.userDetail = response.email;
-  // });
+    
     this.ionicAuthService.userDetails().subscribe(response => {
       if (response !== null) {
         this.userDetail = response.email;

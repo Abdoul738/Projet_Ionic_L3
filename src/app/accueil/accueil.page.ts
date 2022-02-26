@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {AngularFirestore} from "@angular/fire/compat/firestore"
 
 @Component({
   selector: 'app-accueil',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accueil.page.scss'],
 })
 export class AccueilPage implements OnInit {
-
-  constructor() { }
+  lsttrajet: any[];
+  constructor(public firestore: AngularFirestore) {
+    this.firestore.collection('trajet').valueChanges().subscribe(responses => {
+      this.lsttrajet = responses;
+  });
+   }
 
   ngOnInit() {
   }

@@ -20,30 +20,49 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="text1"><strong><center>User: Mr inconnue</center></strong></div>
+  <div class="text1"><strong><center> Mr/Mme {{ userfirstname }} {{ username }}</center></strong></div>
       <div class="form1">
-        <p>Ajouter un trajet</p>
+        <center><p>Ajouter un trajet <ion-icon name="bus-outline"></ion-icon> </p></center>
         <ion-list>
           <ion-item>
-            <ion-input type="text" placeholder="Ville de depart"></ion-input>
-            <ion-input type="text" placeholder="Ville de d'arrive"></ion-input>
+            <!-- <ion-icon name="arrow-up-circle-outline"></ion-icon> -->
+            <ion-icon name="log-out-outline"></ion-icon>
+            <ion-input type="text" [(ngModel)]="villeDepart" placeholder="Ville de depart"></ion-input>
+            <!-- <ion-icon name="location-outline"></ion-icon> -->
+            <ion-icon name="log-in-outline"></ion-icon>
+            <ion-input type="text" [(ngModel)]="villeArrivee" placeholder="Ville de d'arrive"></ion-input>
           </ion-item>
           <ion-item>
             <ion-icon name="calendar-number-outline"></ion-icon>
-            <ion-input type="date" placeholder="Date"></ion-input>
-            <ion-label><b>Heure  </b></ion-label>
-            <ion-input type="time" placeholder="Heure de depart"></ion-input>
+            <ion-input type="date" [(ngModel)]="dateDepart" placeholder="Date"></ion-input>
+            <ion-icon name="time-outline"></ion-icon>
+            <ion-input type="time" [(ngModel)]="heureDepart" placeholder="Heure de depart"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="number" placeholder="Nombre de places"></ion-input>
+            <ion-icon name="people-outline"></ion-icon>
+            <ion-input type="number" [(ngModel)]="nombreDePlaces" placeholder="Nombre de places"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="Prix de transport en CFA"></ion-input>
+            <ion-icon name="logo-euro"></ion-icon>
+            <ion-input type="text" [(ngModel)]="prix" placeholder="Prix de transport en CFA"></ion-input>
           </ion-item>
-      
+          <!-- <ion-datetime first-day-of-week="1"></ion-datetime> -->
           <div class="ion-padding">
-            <ion-button expand="block" fill="outline" color="primary"><b>Valider</b></ion-button>
+            <ion-button (click)="onCreateClick()" expand="block" fill="outline" color="primary"><b>Valider</b></ion-button>
           </div>
         </ion-list>
       </div>
+      <div class="text1"><strong><center> La liste de vos trajets.</center></strong></div>
+      <ion-list>
+        <ion-item *ngFor="let trajet of lsttrajet">
+          <ion-label>
+            <p>De {{trajet.villeDepart}} a {{trajet.villeArrivee}}</p>
+            <p>le {{trajet.dateDepart}}, heure de depart : {{ trajet.heureDepart }}</p>
+            <p>Prix: <b>{{ trajet.prix }} FCFA</b></p>
+          </ion-label>
+          <ion-badge slot="end" color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </ion-badge>
+        </ion-item>
+      </ion-list>
 </ion-content>
