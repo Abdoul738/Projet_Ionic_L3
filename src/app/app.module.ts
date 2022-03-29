@@ -15,6 +15,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 export const firebaseConfig = {
+  // apiKey: "AIzaSyAeAhrbjI2GT3QFFXqdtM9b42SRje4E01A",
+  // authDomain: "covoiturage-projet.firebaseapp.com",
+  // projectId: "covoiturage-projet",
+  // storageBucket: "covoiturage-projet.appspot.com",
+  // messagingSenderId: "1056920938286",
+  // appId: "1:1056920938286:web:a01cbd4e61a8187ef2fcbf",
+  // measurementId: "G-QTD5PPD3SQ"
+
   apiKey: "AIzaSyCUfWGGSyxn8TisXD9bo8YPwqYet0nDb7s",
   authDomain: "l3miage-8e93e.firebaseapp.com",
   databaseURL: "https://l3miage-8e93e-default-rtdb.firebaseio.com",
