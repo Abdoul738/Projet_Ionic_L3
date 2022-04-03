@@ -7,13 +7,13 @@
 <ion-content>
 
 </ion-content> -->
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <!-- <ion-buttons slot="start">
-      <ion-back-button defaultHref="info-conducteur" text="retour"></ion-back-button>
-    </ion-buttons> -->
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Vos Trajets</ion-title>
   </ion-toolbar>
@@ -54,15 +54,23 @@
       </div>
       <div class="text1"><strong><center> La liste de vos trajets.</center></strong></div>
       <ion-list>
-        <ion-item *ngFor="let trajet of lsttrajet">
+        <ion-item *ngFor="let trajet of lsttrajet | async" (click)="delete_trajet(trajet)">
+          <ion-badge slot="start">{{trajet.Id}}</ion-badge>
           <ion-label>
             <p>De {{trajet.villeDepart}} a {{trajet.villeArrivee}}</p>
             <p>le {{trajet.dateDepart}}, heure de depart : {{ trajet.heureDepart }}</p>
             <p>Prix: <b>{{ trajet.prix }} FCFA</b></p>
           </ion-label>
-          <ion-badge slot="end" color="danger">
-            <ion-icon name="trash"></ion-icon>
-          </ion-badge>
+          <ion-button (click)="delete_trajet(trajet.Id)">
+            <ion-badge slot="end" color="danger">
+              <ion-icon name="trash">
+              </ion-icon>
+            </ion-badge>
+          </ion-button>
+          
         </ion-item>
       </ion-list>
+      <div id="list">
+
+      </div>
 </ion-content>

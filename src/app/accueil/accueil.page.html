@@ -1,14 +1,28 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>accueil</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>Accueil</strong>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
-
+  <ion-searchbar> </ion-searchbar>
+  <ion-item lines="full">
+    <ion-label>Selectionner le type de recherche</ion-label>
+    <ion-select>
+      <ion-select-option [value]="null">All</ion-select-option>
+      <ion-select-option [value]="null">Date</ion-select-option>
+      <ion-select-option [value]="null">Depart</ion-select-option>
+      <ion-select-option [value]="null">Destination</ion-select-option>
+    </ion-select>
+  </ion-item>
   <div id="container">
     <div class="img1">
       <div class="text1"><strong><center>Où souhaitez vous aller ?</center></strong></div>
@@ -47,9 +61,10 @@
       </div>
 
       <div class="text2"><strong><center> La liste des trajets disponibles.</center></strong></div>
-      <ion-list>
+      <ion-list  id="my-custom-class">
         <ion-item *ngFor="let trajet of lsttrajet">
           <ion-label>
+            <p>Id: <b>00{{ trajet.Id }}</b></p>
             <p>De {{trajet.villeDepart}} a {{trajet.villeArrivee}}</p>
             <p>le {{trajet.dateDepart}}, heure de depart : {{ trajet.heureDepart }}</p>
             <p>Prix: <b>{{ trajet.prix }} FCFA</b></p>

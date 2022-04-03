@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController,LoadingController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { IonicAuthService } from '../ionic-auth.service';
 import {AngularFirestore} from "@angular/fire/compat/firestore"
@@ -51,7 +51,8 @@ constructor(
   private router: Router,
   private ionicAuthService: IonicAuthService,
   private fb: FormBuilder,
-  public firestore: AngularFirestore
+  public firestore: AngularFirestore,
+  private loadingCtrl:  LoadingController ,
 ) { }
 
 ngOnInit() {
@@ -79,7 +80,14 @@ ngOnInit() {
 //     })
 // }
 
-signIn(value) {
+async signIn(value) {
+  //show loader
+  let loader  = await this.loadingCtrl.create({
+    message:  'Patienter s\'il vous plait ....',
+    duration: 5000
+  })  ;
+  loader.present() ;
+
   this.ionicAuthService.signinUser(value)
     .then((response) => {
       console.log(response)
@@ -88,9 +96,13 @@ signIn(value) {
       .subscribe(actions => {
         actions.forEach(action => {
           if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Conducteur')){
+            //dismiss loader
+            loader.dismiss()  ;
             this.router.navigateByUrl('create-trajet');
           }
           else if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Passager')){
+            //dismiss loader
+            loader.dismiss()  ;
             this.router.navigateByUrl('dashboard');
           };
           // console.log('Nom: ' + action.payload.doc.data()['nom']);  

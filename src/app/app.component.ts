@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Platform } from '@ionic/angular'; 
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { IonicAuthService } from './ionic-auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,10 +12,13 @@ import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 })
 export class AppComponent {
   navigate : any;
+  login = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar   : StatusBar
+    private statusBar   : StatusBar,
+    private ionicAuthService: IonicAuthService,
+    private router: Router
   ) {
     this.initializeApp();
     this.sideMenu();
@@ -24,6 +28,15 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.ionicAuthService.userDetails().subscribe(response => {
+        if (response) {
+          this.login = true;
+          // this.router.navigateByUrl('');
+        } else {
+          this.login = false;
+          // this.router.navigateByUrl('/login');
+        }
+      });
     });
   }
 
@@ -37,15 +50,19 @@ export class AppComponent {
         icon  : "home"
       },
       {
-        title : "Connexion",
-        url   : "/login",
-        icon  : "person-outline"
-      },
-      {
         title : "Inscription",
         url   : "/register",
         icon  : "person-add-outline"
       },
     ]
+  }
+  signOut() {
+    this.ionicAuthService.signoutUser()
+      .then(res => {
+        this.router.navigateByUrl('/login');
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 }
