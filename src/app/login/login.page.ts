@@ -98,7 +98,7 @@ async signIn(value) {
           if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Conducteur')){
             //dismiss loader
             loader.dismiss()  ;
-            this.router.navigateByUrl('create-trajet');
+            this.router.navigateByUrl('user-account');
           }
           else if((action.payload.doc.data()['email'] === value.email) && (action.payload.doc.data()['statut'] === 'Passager')){
             //dismiss loader
@@ -118,6 +118,10 @@ async signIn(value) {
 
 goToSignup() {
   this.router.navigateByUrl('register');
+}
+
+forgetPassword(){
+  this.router.navigateByUrl('reset-password');
 }
 
   // constructor(public alertController: AlertController,private router: Router,public toastController: ToastController,public afDB: AngularFireDatabase,public afAuth: AngularFireAuth) {

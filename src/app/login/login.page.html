@@ -39,7 +39,7 @@
 
 
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -78,5 +78,6 @@
     
     <label class="ion-text-center" color="danger">{{errorMsg}}</label>
   </form>
-  <p class="ion-text-center">Vous n'avez pas encore de compte? <a (click)="goToSignup()">Inscrivez-vous</a></p>
+  <p class="ion-text-center">Vous n'avez pas encore de compte? <a (click)="goToSignup()">Inscrivez-vous</a></p><br>
+  <p class="ion-text-center" (click)="forgetPassword()">Mot de passe oublier</p>
 </ion-content>

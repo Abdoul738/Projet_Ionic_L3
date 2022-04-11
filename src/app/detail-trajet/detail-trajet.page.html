@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>detail du trajet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="danger">
+    <ion-card-header>
+      <ion-card-subtitle>{{ id }}</ion-card-subtitle>
+      <ion-card-subtitle>{{ trajet.dateDepart }}</ion-card-subtitle>
+      <ion-card-title>{{trajet.villeDepart }} - {{trajet.villeArrivee}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Heure de depart : {{ trajet.heureDepart }}</p>
+      <p>Nombre de place restant : {{ trajet.nombreDePlaces }}</p>
+      <p>Prix de transport {{ trajet.prix }}</p>
+      <p>Conducteur : {{ trajet.conductemail }}</p>
+      <br>
+      <ion-button expand="block" fill="outline" color="primary" [routerLink]="'/'+trajet.id">Reserver</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

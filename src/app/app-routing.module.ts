@@ -32,8 +32,24 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
-    path: 'create-trajet',
+    path: 'create-trajet/:useremail',
     loadChildren: () => import('./create-trajet/create-trajet.module').then( m => m.CreateTrajetPageModule)
+  },
+  {
+    path: 'detail-trajet/:id',
+    loadChildren: () => import('./detail-trajet/detail-trajet.module').then( m => m.DetailTrajetPageModule)
+  },
+  {
+    path: 'edit-trajet/:id',
+    loadChildren: () => import('./edit-trajet/edit-trajet.module').then( m => m.EditTrajetPageModule)
+  },
+  {
+    path: 'user-account',
+    loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
 ];
 

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modifier trajet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form1">
+    <center><p>Modifier un trajet <ion-icon name="bus-outline"></ion-icon> </p></center>
+    <ion-list>
+      <ion-item>
+        <!-- <ion-icon name="arrow-up-circle-outline"></ion-icon> -->
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-input type="text" [(ngModel)]="trajet.villeDepart" placeholder="Ville de depart"></ion-input>
+        <!-- <ion-icon name="location-outline"></ion-icon> -->
+        <ion-icon name="log-in-outline"></ion-icon>
+        <ion-input type="text" [(ngModel)]="trajet.villeArrivee" placeholder="Ville de d'arrive"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar-number-outline"></ion-icon>
+        <ion-input type="date" [(ngModel)]="trajet.dateDepart" placeholder="Date"></ion-input>
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-input type="time" [(ngModel)]="trajet.heureDepart" placeholder="Heure de depart"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="people-outline"></ion-icon>
+        <ion-input type="number" [(ngModel)]="trajet.nombreDePlaces" placeholder="Nombre de places"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-euro"></ion-icon>
+        <ion-input type="text" [(ngModel)]="trajet.prix" placeholder="Prix de transport en CFA"></ion-input>
+      </ion-item>
+      <!-- <ion-datetime first-day-of-week="1"></ion-datetime> -->
+      <div class="ion-padding">
+        <ion-button (click)="updateTrajets(trajet)" expand="block" fill="outline" color="primary"><b>Modifier</b></ion-button>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

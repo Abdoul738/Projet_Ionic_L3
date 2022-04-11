@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {AngularFirestore} from "@angular/fire/compat/firestore"
+import { Trajet } from '../trajet';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-accueil',
@@ -9,13 +12,15 @@ import {AngularFirestore} from "@angular/fire/compat/firestore"
 })
 export class AccueilPage implements OnInit {
   lsttrajet: any[];
-  constructor(public firestore: AngularFirestore) {
-    this.firestore.collection('trajet').valueChanges().subscribe(responses => {
-      this.lsttrajet = responses;
-  });
+  private trajets : Observable<Trajet[]>
+  constructor(public firestore: AngularFirestore,private fbService: FirebaseService) {
+  //   this.firestore.collection('trajet').valueChanges().subscribe(responses => {
+  //     this.lsttrajet = responses;
+  // });
    }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.trajets = this.fbService.getTrajets();
   }
 
 }

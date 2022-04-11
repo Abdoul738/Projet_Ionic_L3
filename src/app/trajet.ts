@@ -3,7 +3,7 @@ export interface Trajet {
     villeDepart: string;
     villeArrivee: string;
     dateDepart: Date;
-    heureDepart: Date;
+    heureDepart:  Date;
     nombreDePlaces: number;
     prix: number;
     conductemail :string;

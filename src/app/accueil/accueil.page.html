@@ -24,8 +24,8 @@
     </ion-select>
   </ion-item>
   <div id="container">
-    <div class="img1">
-      <div class="text1"><strong><center>Où souhaitez vous aller ?</center></strong></div>
+    <!-- <div class="img1"> -->
+      <!-- <div class="text1"><strong><center>Où souhaitez vous aller ?</center></strong></div>
       <div class="form1">
         <ion-list>
           <ion-item>
@@ -50,31 +50,30 @@
             <ion-button expand="block" fill="outline" color="primary"><b>Recherche</b></ion-button>
           </div>
         </ion-list>
-      </div>
-      <div class="text1"><strong><center>Proposer un trajet</center></strong></div>
+      </div> -->
+
+      <!-- <div class="text1"><strong><center>Proposer un trajet</center></strong></div>
       <div class="form2">
         <ion-list>
           <div class="ion-padding">
             <ion-button expand="block" fill="outline" color="primary" routerLink="/login"><b>Proposer</b></ion-button>
           </div>
         </ion-list>
-      </div>
+      </div> -->
 
       <div class="text2"><strong><center> La liste des trajets disponibles.</center></strong></div>
       <ion-list  id="my-custom-class">
-        <ion-item *ngFor="let trajet of lsttrajet">
+        <ion-item *ngFor="let trajet of (trajets | async)">
           <ion-label>
-            <p>Id: <b>00{{ trajet.Id }}</b></p>
             <p>De {{trajet.villeDepart}} a {{trajet.villeArrivee}}</p>
             <p>le {{trajet.dateDepart}}, heure de depart : {{ trajet.heureDepart }}</p>
             <p>Prix: <b>{{ trajet.prix }} FCFA</b></p>
           </ion-label>
-          <ion-button slot="end" color="success">
-            Reserver<ion-icon name="paper-plane-outline"></ion-icon>
-          </ion-button>
+          <ion-button slot="end" fill="outline" [routerLink]="['/detail-trajet',trajet.id]">Detail</ion-button>
+            <!-- Reserver<ion-icon name="paper-plane-outline"></ion-icon> -->
         </ion-item>
       </ion-list>
-    </div>
+    <!-- </div> -->
     
   </div>
 

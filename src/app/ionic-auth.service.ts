@@ -42,4 +42,8 @@ export class IonicAuthService {
     return this.angularFireAuth.user
   }
 
+  forgotpasswordUSer(email: string) {
+    return this.angularFireAuth.sendPasswordResetEmail(email);
+  }
+
 }
